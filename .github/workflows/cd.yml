@@ -1,0 +1,49 @@
+name: CD
+
+on:
+  push:
+    branches: [main, stg]
+
+jobs:
+  deploy:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy based on branch
+        run: |
+          # github.ref_name reliably gives the target branch (dev, stg, main) on a push event
+          BRANCH="${{ github.ref_name }}"
+
+          if [ "$BRANCH" = "main" ]; then
+            echo "🚀 Deploying to PRODUCTION"
+            DEPLOYMENT_URL=$(npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }})
+            echo "Deployment URL: $DEPLOYMENT_URL"
+
+          elif [ "$BRANCH" = "stg" ]; then
+            echo "🧪 Deploying to STAGING"
+            DEPLOYMENT_URL=$(npx vercel deploy --yes --token=${{ secrets.VERCEL_TOKEN }} --env VITE_APP_ENV=stg)
+            echo "Deployment URL: $DEPLOYMENT_URL"
+            npx vercel alias set "$DEPLOYMENT_URL" expenova-stg.vercel.app --token=${{ secrets.VERCEL_TOKEN }}
+
+          else
+            echo "⚠️ Skipping deployment for branch: $BRANCH"
+          fi
+        env:
+          VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }}

@@ -1,11 +1,11 @@
-import { Navigate, Outlet } from "react-router-dom";
-import Cookies from "js-cookie";
-import { TOKEN } from "../../utility/constants";
+import { Navigate, Outlet } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { TOKEN } from '../../utility/constants';
 
 const ProtectedRoute = () => {
   const Auth = () => {
     const user = Cookies.get(TOKEN);
-    return !!user || true;
+    return !!user;
   };
 
   return (

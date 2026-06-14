@@ -1,0 +1,37 @@
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border: 1px solid var(--bordercolor);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  box-shadow:
+    #0000001a 0px 4px 6px -1px,
+    #0000000f 0px 2px 4px -1px;
+}
+
+.inputContainer input {
+  height: 32px;
+  width: 90%;
+  background-color: transparent;
+  font-size: var(--text-md);
+}
+
+.inputContainer:has(input:focus) {
+  box-shadow: #00000040 0px 3px 8px;
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .inputContainer {
+    margin-bottom: 40px;
+    padding: 8px 16px;
+  }
+}

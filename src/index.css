@@ -1,0 +1,32 @@
+#root {
+  /* font */
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+
+  /* colors */
+  --black: #333333;
+  --white: #f2f2f2;
+  --background: var(--white);
+  --textcolor: var(--black);
+  --bordercolor: hsl(0, 0%, 75%);
+
+  --theme: 270;
+  --primary: hsl(var(--theme), 100%, 50%);
+  --primarybackground: hsl(var(--theme), 100%, 95%);
+
+  --red: 0;
+  --danger: hsl(var(--red), 100%, 50%);
+  --dangerbackground: hsl(var(--red), 100%, 95%);
+}
+
+@media (max-width: 500px) {
+  #root {
+    /* font */
+    --text-sm: 16px;
+    --text-md: 20px;
+    --text-lg: 24px;
+    --text-xl: 28px;
+  }
+}

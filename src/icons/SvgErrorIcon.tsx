@@ -1,10 +1,10 @@
-import type { FC } from "react";
+import type { FC } from 'react';
 
 interface Props {
   color?: string;
 }
 
-const SvgErrorIcon: FC<Props> = ({ color = "#C60000" }) => (
+const SvgErrorIcon: FC<Props> = ({ color = '#C60000' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={14} height={14} fill="none">
     <path
       stroke={color}

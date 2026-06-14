@@ -1,0 +1,14 @@
+{
+  "auth": {
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmpassword": "Confirm Password",
+    "forgotpassword": "Forgot Password?",
+    "newuser": "New user?",
+    "createaccount": "Create Account",
+    "haveaccount": "Already have an Account?"
+  }
+}

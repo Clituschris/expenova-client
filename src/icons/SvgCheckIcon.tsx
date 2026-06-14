@@ -1,10 +1,10 @@
-import type { FC } from "react";
+import type { FC } from 'react';
 
 interface Props {
   color?: string;
 }
 
-const SvgCheckIcon: FC<Props> = ({ color = "#0074AB" }) => (
+const SvgCheckIcon: FC<Props> = ({ color = '#0074AB' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={20} height={15} fill="none">
     <path
       fill={color}

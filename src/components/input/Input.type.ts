@@ -1,9 +1,11 @@
-type IconTypes = 'user';
+type IconTypes = 'user' | 'phone';
 
 export interface Props {
-  icon?: IconTypes;
-  type: string;
-  placeholder: string;
-  value?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  id: string;
+  placeholder?: string;
+  icon?: IconTypes;
+  type?: string;
+  value?: string;
+  label?: string;
 }

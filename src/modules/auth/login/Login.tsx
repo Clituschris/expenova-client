@@ -1,69 +1,47 @@
+/*** libraries ***/
 import type { FC } from 'react';
-import type { Props } from './Login.type';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+
+/*** css ***/
 import styles from './Login.module.css';
 
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import i18n from '@app/i18n';
-
-import { Logo, LoginIllustrator } from '@app/icons';
-import { Input, Button } from '@app/components';
+/*** types ***/
+import type { Props } from './Login.type';
+import { Button, Input } from '@app/components';
 
 const Login: FC<Props> = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
-
-  const goToSignup = () => {
-    navigate('/signup');
-  };
-
-  const toggleLanguage = () => {
-    const currentLang = i18n.language;
-    const newLang = currentLang === 'en' ? 'ta' : 'en';
-    i18n.changeLanguage(newLang);
-  };
 
   return (
     <div className={styles.container}>
-      <div className={styles.logoContainer}>
-        <Logo size={3} />
+      <Input
+        placeholder="you@example.com"
+        onChange={() => {}}
+        label={t('auth.form.email')}
+        id="email"
+        type="email"
+      />
+      <Input
+        placeholder="*************"
+        onChange={() => {}}
+        label={t('auth.form.password')}
+        id="password"
+        type="password"
+      />
+      <div className={styles.forgotPasswordContainer}>
+        <Link to="/forgotpassword" className={styles.forgotPasswordLink}>
+          {t('auth.form.forgotpassword')}
+        </Link>
       </div>
-      <div className={styles.formContainer}>
-        <div className={styles.illustratorContainer}>
-          <LoginIllustrator />
-        </div>
-        <div className={styles.inputContainer}>
-          <Input
-            type="email"
-            placeholder={t('auth.email')}
-            onChange={() => {}}
-          />
-          <Input
-            type="password"
-            placeholder={t('auth.password')}
-            onChange={() => {}}
-          />
-          <div className={styles.forgotPasswordContainer}>
-            <div className={styles.forgotPasswordText}>
-              {t('auth.forgotpassword')}
-            </div>
-          </div>
-          <Button
-            text={t('auth.signin')}
-            onClick={() => {
-              toggleLanguage();
-            }}
-          />
-          <div className={styles.signupContainer}>
-            <div>{t('auth.newuser')}</div>
-            <div className={styles.signupLink} onClick={goToSignup}>
-              {t('auth.createaccount')}
-            </div>
-          </div>
-        </div>
-        <div className={styles.illustratorContainer}>
-          <LoginIllustrator invert />
-        </div>
+      <div className={styles.button}>
+        <Button text={t('auth.button.login')} onClick={() => {}} />
+      </div>
+      <div className={styles.createAccount}>
+        {t('auth.form.signuplink.text')}
+        <Link to="/signup" className={styles.signupLink}>
+          {t('auth.form.signuplink.link')}
+        </Link>
       </div>
     </div>
   );

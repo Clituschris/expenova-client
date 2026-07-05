@@ -1,32 +1,36 @@
 #root {
   /* font */
-  --text-sm: 14px;
-  --text-md: 16px;
+  --text-sm: 12px;
+  --text-md: 14px;
   --text-lg: 20px;
   --text-xl: 24px;
 
   /* colors */
-  --black: #333333;
-  --white: #f2f2f2;
+  --black: hsl(0, 0%, 20%);
+  --black-faded: hsla(0, 0%, 20%, 0.7);
+  --white: hsl(0, 0%, 100%);
+  --white-faded: hsla(0, 0%, 100%, 0.7);
   --background: var(--white);
-  --textcolor: var(--black);
+  --text: var(--black);
+  --text-faded: var(--black-faded);
   --bordercolor: hsl(0, 0%, 75%);
 
   --theme: 270;
   --primary: hsl(var(--theme), 100%, 50%);
-  --primarybackground: hsl(var(--theme), 100%, 95%);
+  --primary-background: hsl(var(--theme), 100%, 95%);
+  --primary-faded: hsla(var(--theme), 100%, 99%);
 
   --red: 0;
   --danger: hsl(var(--red), 100%, 50%);
-  --dangerbackground: hsl(var(--red), 100%, 95%);
+  --danger-background: hsl(var(--red), 100%, 95%);
 }
 
 @media (max-width: 500px) {
   #root {
     /* font */
-    --text-sm: 16px;
-    --text-md: 20px;
-    --text-lg: 24px;
-    --text-xl: 28px;
+    --text-sm: 12px;
+    --text-md: 14px;
+    --text-lg: 20px;
+    --text-xl: 24px;
   }
 }

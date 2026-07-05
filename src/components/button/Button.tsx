@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import type { FC } from 'react';
 import type { Props } from './Button.type';
 import styles from './Button.module.css';
@@ -19,4 +18,4 @@ const Button: FC<Props> = ({
   );
 };
 
-export default memo(Button);
+export default Button;

@@ -13,6 +13,7 @@
 .md {
   padding: 16px;
   font-size: var(--text-lg);
+  font-size: var(--text-lg);
   border-radius: 6px;
   font-weight: 600;
 }

@@ -1,60 +1,61 @@
-/*** library **/
-import { useEffect, useMemo, useState } from 'react';
+/*** library ***/
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-/*** types **/
+/*** types ***/
 import type { Props } from '@app/modules/auth/authLayout/AuthLayout.type';
 
-const useAuthLayout = (props: Props) => {
-  const { layoutType } = props;
+const useAuthLayout = ({ layoutType }: Props) => {
   const { t } = useTranslation();
 
-  const [state, setState] = useState({
-    bannerTitle: '',
-    bannerSummary: '',
-    formTitle: '',
-    formSubtitle: ''
-  });
+  const resolvedLayoutType = layoutType ?? 'login';
+  const isChoiceVisible =
+    resolvedLayoutType === 'login' || resolvedLayoutType === 'signup';
 
-  const isChoiceVisible = useMemo(
-    () => layoutType === 'login' || layoutType === 'signup',
-    [layoutType]
-  );
+  const content = useMemo(() => {
+    const map: Record<
+      'login' | 'signup' | 'forgotpassword',
+      {
+        bannerTitle: string;
+        bannerSummary: string;
+        formTitle: string;
+        formSubtitle: string;
+      }
+    > = {
+      login: {
+        bannerTitle: t('auth.banner.title.login'),
+        bannerSummary: t('auth.banner.summary.login'),
+        formTitle: t('auth.title.login'),
+        formSubtitle: t('auth.subtitle.login')
+      },
+      signup: {
+        bannerTitle: t('auth.banner.title.signup'),
+        bannerSummary: t('auth.banner.summary.signup'),
+        formTitle: t('auth.title.signup'),
+        formSubtitle: t('auth.subtitle.signup')
+      },
+      forgotpassword: {
+        bannerTitle: t('auth.banner.title.forgotpassword'),
+        bannerSummary: t('auth.banner.summary.forgotpassword'),
+        formTitle: t('auth.title.forgotpassword'),
+        formSubtitle: t('auth.subtitle.forgotpassword')
+      }
+    };
 
-  const renderContents = () => {
-    switch (layoutType) {
-      case 'login':
-        setState({
-          bannerTitle: t('auth.banner.title.login'),
-          bannerSummary: t('auth.banner.summary.login'),
-          formTitle: t('auth.title.login'),
-          formSubtitle: t('auth.subtitle.login')
-        });
-        break;
-      case 'signup':
-        setState({
-          bannerTitle: t('auth.banner.title.signup'),
-          bannerSummary: t('auth.banner.summary.signup'),
-          formTitle: t('auth.title.signup'),
-          formSubtitle: t('auth.subtitle.signup')
-        });
-        break;
-      case 'forgotpassword':
-        setState({
-          bannerTitle: t('auth.banner.title.forgotpassword'),
-          bannerSummary: t('auth.banner.summary.forgotpassword'),
-          formTitle: t('auth.title.forgotpassword'),
-          formSubtitle: t('auth.subtitle.forgotpassword')
-        });
-        break;
-    }
+    return (
+      map[resolvedLayoutType] || {
+        bannerTitle: '',
+        bannerSummary: '',
+        formTitle: '',
+        formSubtitle: ''
+      }
+    );
+  }, [resolvedLayoutType, t]);
+
+  return {
+    ...content,
+    isChoiceVisible
   };
-
-  useEffect(() => {
-    renderContents();
-  }, [layoutType]);
-
-  return { ...state, isChoiceVisible };
 };
 
 export default useAuthLayout;

@@ -1,5 +1,4 @@
 /*** libraries ***/
-import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -7,10 +6,9 @@ import { Link } from 'react-router-dom';
 import styles from './Login.module.css';
 
 /*** types ***/
-import type { Props } from './Login.type';
 import { Button, Input } from '@app/components';
 
-const Login: FC<Props> = () => {
+const Login = () => {
   const { t } = useTranslation();
 
   return (

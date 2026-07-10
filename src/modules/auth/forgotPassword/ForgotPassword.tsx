@@ -1,18 +1,15 @@
 /** library **/
-import { useMemo, useState, type FC } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { t } from 'i18next';
 
 /** css **/
 import styles from './ForgotPassword.module.css';
 
-/** types **/
-import type { Props } from './ForgotPassword.type';
-
 /** components **/
 import { Button, Input } from '@app/components';
 
-const ForgotPassword: FC<Props> = () => {
+const ForgotPassword = () => {
   const [isValid, setIsValid] = useState(false);
 
   const navigate = useNavigate();

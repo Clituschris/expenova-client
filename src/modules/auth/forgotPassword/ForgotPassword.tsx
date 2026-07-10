@@ -1,5 +1,6 @@
 /** library **/
 import { useMemo, useState, type FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { t } from 'i18next';
 
 /** css **/
@@ -14,6 +15,12 @@ import { Button, Input } from '@app/components';
 const ForgotPassword: FC<Props> = () => {
   const [isValid, setIsValid] = useState(false);
 
+  const navigate = useNavigate();
+
+  const onCancel = () => {
+    navigate('/login');
+  };
+
   const buttonText = useMemo(
     () => (isValid ? t('auth.button.resetpassword') : t('auth.button.next')),
     [isValid]
@@ -21,19 +28,19 @@ const ForgotPassword: FC<Props> = () => {
   return (
     <div className={styles.container}>
       <Input
+        placeholder="you@example.com"
+        onChange={() => {}}
+        label={t('auth.form.email')}
+        id="email"
+        type="email"
+      />
+      <Input
         placeholder="+91 1234512345"
         onChange={() => {}}
         label={t('auth.form.phone')}
         id="phone"
         type="number"
         icon="phone"
-      />
-      <Input
-        placeholder="dd-mm-yyyy"
-        onChange={() => {}}
-        label={t('auth.form.dob')}
-        id="dob"
-        type="date"
       />
       {isValid ? (
         <>
@@ -55,6 +62,7 @@ const ForgotPassword: FC<Props> = () => {
         </>
       ) : null}
       <div className={styles.button}>
+        <Button text={t('auth.button.cancel')} onClick={onCancel} outlined />
         <Button
           text={buttonText}
           onClick={() => {

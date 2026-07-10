@@ -37,13 +37,6 @@ const PersonalDetails: FC<Props> = () => {
         type="number"
         icon="phone"
       />
-      <Input
-        placeholder="dd-mm-yyyy"
-        onChange={() => {}}
-        label={t('auth.form.dob')}
-        id="dob"
-        type="date"
-      />
     </div>
   );
 };

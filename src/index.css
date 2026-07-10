@@ -1,9 +1,10 @@
 #root {
   /* font */
-  --text-sm: 12px;
-  --text-md: 14px;
-  --text-lg: 20px;
-  --text-xl: 24px;
+  --text-sm: clamp(12px, 0.6vw, 16px);
+  --text-md: clamp(14px, 0.85vw, 18px);
+  --text-lg: clamp(16px, 1vw, 20px);
+  --text-xl: clamp(20px, 1.75vw, 24px);
+  --text-2xl: clamp(24px, 1.85vw, 28px);
 
   /* colors */
   --black: hsl(0, 0%, 20%);
@@ -23,14 +24,4 @@
   --red: 0;
   --danger: hsl(var(--red), 100%, 50%);
   --danger-background: hsl(var(--red), 100%, 95%);
-}
-
-@media (max-width: 500px) {
-  #root {
-    /* font */
-    --text-sm: 12px;
-    --text-md: 14px;
-    --text-lg: 20px;
-    --text-xl: 24px;
-  }
 }

@@ -1,28 +1,24 @@
 /*** libraries ***/
-import { useMemo, useState, type FC } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /*** css ***/
 import styles from './Signup.module.css';
 
 /*** types ***/
-import type { Props } from './Signup.type';
-import SetPassword from './components/setPassword';
+import SetPassword from './components/setPassword/SetPassword';
 
 /*** components ***/
-import PersonalDetails from './components/personalDetails';
+import PersonalDetails from './components/personalDetails/PersonalDetails';
 import { Button } from '@app/components';
 
-const SignUp: FC<Props> = () => {
+const SignUp = () => {
   const { t } = useTranslation();
 
   const [isValid, setIsvalid] = useState(false);
 
   const buttonText = useMemo(
-    () =>
-      isValid
-        ? t('auth.button.createaccount')
-        : t('auth.button.next'),
+    () => (isValid ? t('auth.button.createaccount') : t('auth.button.next')),
     [isValid]
   );
 

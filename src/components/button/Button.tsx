@@ -6,11 +6,12 @@ const Button: FC<Props> = ({
   text,
   onClick,
   size = 'md',
-  variant = 'primary'
+  variant = 'primary',
+  outlined = false
 }) => {
   return (
     <button
-      className={`${styles.button} ${styles[size]} ${styles[variant]}`}
+      className={`${styles.button} ${styles[size]} ${styles[variant]} ${outlined ? styles.outlined : styles.filled} `}
       onClick={onClick}
     >
       {text}

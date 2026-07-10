@@ -1,17 +1,13 @@
 /*** libraries ***/
-import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /*** css ***/
 import styles from './PersonalDetails.module.css';
 
-/*** types ***/
-import type { Props } from './PersonalDetails.type';
-
 /*** components ***/
 import { Input } from '@app/components';
 
-const PersonalDetails: FC<Props> = () => {
+const PersonalDetails = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.container}>
@@ -36,13 +32,6 @@ const PersonalDetails: FC<Props> = () => {
         id="phone"
         type="number"
         icon="phone"
-      />
-      <Input
-        placeholder="dd-mm-yyyy"
-        onChange={() => {}}
-        label={t('auth.form.dob')}
-        id="dob"
-        type="date"
       />
     </div>
   );

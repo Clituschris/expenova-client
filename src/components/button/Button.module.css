@@ -1,31 +1,43 @@
 .button {
   width: 100%;
   cursor: pointer;
-  border: none;
   transition: all ease 0.3s;
-  box-shadow:
-    rgba(0, 0, 0, 0.16) 0px 3px 6px,
-    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
 }
 
 .button:hover {
   box-shadow: rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transform: translateY(-1px);
 }
 
 .md {
   padding: 16px;
   font-size: var(--text-lg);
+  font-size: var(--text-lg);
   border-radius: 6px;
+  font-weight: 600;
 }
 
-.primary {
+.primary.filled {
   background-color: var(--primary);
+  border: none;
   color: var(--white);
-  font-weight: 600;
 }
 
-.danger {
+.primary.outlined {
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--primary);
+}
+
+.danger.filled {
   background-color: var(--danger);
+  border: none;
   color: var(--white);
-  font-weight: 600;
+}
+
+.danger.outlined {
+  border: 1px solid var(--danger);
+  background-color: var(--background);
+  color: var(--danger);
 }

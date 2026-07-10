@@ -6,10 +6,26 @@
   color: var(--text);
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 input {
   transition: background-color 5000s ease-in-out 0s;
   border: none !important;
   outline: none !important;
+}
+
+/* Chrome, Safari, Edge */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 /* Chrome, Safari, Edge */

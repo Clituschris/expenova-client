@@ -73,6 +73,9 @@ const AuthLayout: FC<Props> = (props) => {
           ) : layoutType === 'forgotpassword' ? (
             <ForgotPassword />
           ) : null}
+          <div className={styles.mobileCopyright}>
+            {t('auth.banner.copyright')}
+          </div>
         </div>
       </div>
     </div>

@@ -16,14 +16,14 @@
       "copyright": "© 2026 Expenova. crafted by Clitus."
     },
     "title": {
-      "login": "Login to Expenova",
+      "login": "Login",
       "signup": "Get started",
-      "forgotpassword": "Forgot your password?"
+      "forgotpassword": "Forgot password?"
     },
     "subtitle": {
       "login": "Enter your credentials to continue.",
       "signup": "It only takes a minute.",
-      "forgotpassword": "Enter your phone number and Date of birth"
+      "forgotpassword": "Enter your email and phone number"
     },
     "form": {
       "name": "Name",
@@ -34,7 +34,7 @@
       "confirmpassword": "Confirm Password",
       "forgotpassword": "Forgot Password?",
       "signuplink": {
-        "text": "New to Aura?",
+        "text": "New user?",
         "link": "Create an account"
       }
     },
@@ -42,7 +42,8 @@
       "login": "Log in",
       "next": "Next",
       "createaccount": "Create Account",
-      "resetpassword": "Reset Password"
+      "resetpassword": "Reset Password",
+      "cancel": "Cancel"
     }
   }
 }

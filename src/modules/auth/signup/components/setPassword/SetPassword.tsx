@@ -1,17 +1,13 @@
 /*** libraries ***/
-import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /*** css ***/
 import styles from './SetPassword.module.css';
 
-/*** types ***/
-import type { Props } from './SetPassword.type';
-
 /*** components ***/
 import { Input } from '@app/components';
 
-const SetPassword: FC<Props> = () => {
+const SetPassword = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.container}>

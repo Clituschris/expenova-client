@@ -1,21 +1,24 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { reducers } from "./mainReducer";
+/* eslint-disable */
 
-const resetStoreActionType = "main/resetStore";
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import type { UnknownAction } from '@reduxjs/toolkit';
+import { reducers } from './mainReducer';
 
-const combinedReducer: any = combineReducers(reducers);
+const resetStoreActionType = 'main/resetStore';
+
+const combinedReducer = combineReducers(reducers);
 export const rootReducer = (
   state: {} | Partial<{}> | undefined,
-  action: any
+  action: UnknownAction
 ) => {
   if (action.type === resetStoreActionType) {
     state = undefined;
   }
-  return combinedReducer(state, action);
+  return combinedReducer(state, action as never);
 };
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer
 });
 
 export const resetStore = () => {

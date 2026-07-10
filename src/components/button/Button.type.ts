@@ -6,4 +6,5 @@ export interface Props {
   onClick: () => void;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  outlined?: boolean;
 }

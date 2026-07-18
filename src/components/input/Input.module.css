@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   flex-basis: 100%;
+  margin-bottom: 16px;
 }
 
 .inputContainer {
@@ -14,6 +14,16 @@
   border: 1px solid var(--bordercolor);
   border-radius: 8px;
   background-color: var(--primary-faded);
+}
+
+.inputContainer.errorBorder {
+  border: 1px solid var(--danger);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .label {
@@ -33,9 +43,24 @@
   box-shadow: var(--primary-background) 0 0 0 6px;
 }
 
+.errorBorder:has(input:focus) {
+  box-shadow: var(--danger-background) 0 0 0 6px;
+}
+
 .actionIcon {
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.error {
+  font-size: var(--text-sm);
+  color: var(--danger);
+  margin-top: 4px;
+  height: 16px;
+}
+
+.disabled {
+  opacity: 0.5;
 }

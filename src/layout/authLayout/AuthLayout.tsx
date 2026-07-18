@@ -1,40 +1,37 @@
-/*** libraries ***/
+/** libraries **/
 import type { FC } from 'react';
 import { t } from 'i18next';
 import { useNavigate } from 'react-router-dom';
 
-/*** css ***/
+/** css **/
 import styles from './AuthLayout.module.css';
 
-/*** types ***/
+/** types **/
 import type { Props } from './AuthLayout.type';
 import type { ChoiceValue } from '@app/components/choiceButton/ChoiceButton.type';
 
-/*** components ***/
+/** components **/
 import { ChoiceButton } from '@app/components';
 
-/*** modules ***/
-import { ForgotPassword, Login, Signup } from '@app/modules/auth';
-
-/*** hooks ***/
-import { useAuthLayout } from '@app/hooks';
+/** icons **/
 import { Logo } from '@app/icons';
 
 const AuthLayout: FC<Props> = (props) => {
-  const { layoutType } = props;
+  const {
+    layoutType,
+    bannerTitle,
+    bannerSummary,
+    formTitle,
+    formSubtitle,
+    isChoiceVisible = false,
+    children
+  } = props;
   const navigate = useNavigate();
 
   const choices = [
     { label: t('auth.login'), value: 'login' },
     { label: t('auth.signup'), value: 'signup' }
   ];
-  const {
-    bannerTitle,
-    bannerSummary,
-    formTitle,
-    formSubtitle,
-    isChoiceVisible
-  } = useAuthLayout(props);
 
   const handleNavigate = (value: ChoiceValue) => {
     navigate(`/${value}`);
@@ -66,13 +63,7 @@ const AuthLayout: FC<Props> = (props) => {
               />
             </div>
           ) : null}
-          {layoutType === 'login' ? (
-            <Login />
-          ) : layoutType === 'signup' ? (
-            <Signup />
-          ) : layoutType === 'forgotpassword' ? (
-            <ForgotPassword />
-          ) : null}
+          {children}
           <div className={styles.mobileCopyright}>
             {t('auth.banner.copyright')}
           </div>

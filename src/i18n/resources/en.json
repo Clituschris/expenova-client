@@ -1,7 +1,7 @@
 {
   "auth": {
     "login": "Login",
-    "signup": "SignUp",
+    "signup": "Sign up",
     "banner": {
       "title": {
         "login": "Welcome back.",
@@ -44,6 +44,37 @@
       "createaccount": "Create Account",
       "resetpassword": "Reset Password",
       "cancel": "Cancel"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameInvalid": "Name should be minimum of 3 letters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "phoneRequired": "Phone number is required",
+      "phoneMinLength": "Phone number should be minimum of 10 digits",
+      "phoneMaxLength": "Phone number should be maximum of 15 digits",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password should be minimum of 8 letters",
+      "confirmPasswordRequired": "Confirm password is required",
+      "passwordsMustMatch": "Passwords not matched"
+    }
+  },
+  "error": {
+    "api": {
+      "badRequest": "Invalid request",
+      "unauthorized": "Invalid credentials",
+      "forbidden": "You don't have access",
+      "notFound": "Resource not found",
+      "conflict": "A record with this information already exists.",
+      "validation": "Validation failed",
+      "serverError": "Server error, try again later",
+      "network": "Network error, check your connection",
+      "unknown": "Something went wrong"
+    }
+  },
+  "toast": {
+    "success": {
+      "passwordreset": "Password changed successfully"
     }
   }
 }

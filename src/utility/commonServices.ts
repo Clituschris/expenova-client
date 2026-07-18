@@ -1,5 +1,13 @@
 import type { AxiosRequestConfig } from 'axios';
+import Cookies from 'js-cookie';
 import axiosInstance from './axiosInstance';
+import { resetStore } from '@app/redux/store';
+import { TOKEN } from './constants';
+
+export const logoutApp = () => {
+  Cookies.remove(TOKEN);
+  resetStore();
+};
 
 export const getRequest = async (url: string, config?: AxiosRequestConfig) => {
   const res = await axiosInstance.get(url, config);

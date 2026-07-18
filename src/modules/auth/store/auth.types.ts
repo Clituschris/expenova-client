@@ -9,6 +9,7 @@ import apiRoutes from '@app/api/apiRoutes';
 export type AuthState = {
   isLoading: boolean;
   isValid: boolean;
+  isAuth: boolean;
   passwordResetKey?: string;
 };
 

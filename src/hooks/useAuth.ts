@@ -1,10 +1,12 @@
 /** library **/
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
 
 /** constants **/
 import ROUTES from '@app/routes';
+import { TOKEN, PUBLIC_ROUTES } from '@app/utility/constants';
 
 /** utils **/
 import { errorCodeToMessage, loadSlashScreen } from '@app/utility/helpers';
@@ -40,7 +42,9 @@ export default function useAuth() {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
+  const isAuth = useSelector((state: RootState) => state.authReducer.isAuth);
   const loading = useSelector(
     (state: RootState) => state.authReducer.isLoading
   );
@@ -55,21 +59,17 @@ export default function useAuth() {
         dispatch(healthCheckMiddleware()).unwrap(),
         loadSlashScreen()
       ]);
-      return true;
-    } catch (error) {
-      const errorKey = errorCodeToMessage(error);
-      toast.error(t(errorKey));
-      return false;
-    }
-  };
 
-  const verifyToken = async () => {
-    try {
-      await dispatch(verifyTokenMiddleware()).unwrap();
+      if (PUBLIC_ROUTES.includes(location.pathname)) {
+        return true;
+      }
+
+      const token = Cookies.get(TOKEN);
+      if (token) {
+        await dispatch(verifyTokenMiddleware()).unwrap();
+      }
       return true;
-    } catch (error) {
-      const errorKey = errorCodeToMessage(error);
-      toast.error(t(errorKey));
+    } catch {
       return false;
     }
   };
@@ -131,10 +131,10 @@ export default function useAuth() {
   };
 
   return {
+    isAuth,
     loading,
     isValid,
     initializer,
-    verifyToken,
     loginHandler,
     signupHandler,
     resetPasswordHandler,

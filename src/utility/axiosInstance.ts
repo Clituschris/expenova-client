@@ -1,6 +1,7 @@
 import axios, { type InternalAxiosRequestConfig } from 'axios';
 import Cookies from 'js-cookie';
 import { API_URL, TOKEN } from './constants';
+import { logoutApp } from './commonServices';
 
 const axiosInstance = axios.create({
   baseURL: API_URL
@@ -24,11 +25,7 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      Cookies.remove(TOKEN);
-
-      if (window.location.pathname !== '/login') {
-        window.location.href = '/login';
-      }
+      logoutApp();
     }
 
     return Promise.reject(error);

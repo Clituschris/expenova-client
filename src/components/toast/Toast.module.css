@@ -23,14 +23,14 @@
   max-width: 400px;
 }
 
-.toastSuccess {
-  background-color: #f0f9ff;
-  border-left: 4px solid #0074ab;
+.toast-success {
+  background-color: var(--success);
+  color: var(--black);
 }
 
-.toastError {
-  background-color: #fff5f5;
-  border-left: 4px solid #c60000;
+.toast-error {
+  background-color: var(--danger);
+  color: var(--white);
 }
 
 .toastIcon {
@@ -42,19 +42,16 @@
 
 .toastMessage {
   flex: 1;
-  color: #333;
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   line-height: 1.4;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: inherit;
 }
 
 .toastClose {
   flex-shrink: 0;
   background: none;
   border: none;
-  color: #999;
+  color: #ffffff;
   font-size: var(--text-xl);
   cursor: pointer;
   padding: 0;

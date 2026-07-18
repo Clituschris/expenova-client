@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import type { FC, ReactNode } from 'react';
 import styles from './Toast.module.css';
+import { cn } from '@app/utility/helpers';
 import SvgCheckIcon from '../../icons/SvgCheckIcon';
 import SvgErrorIcon from '../../icons/SvgErrorIcon';
 
@@ -30,14 +31,10 @@ const CustomToastContainer: FC<{
       {messages.map((toast) => (
         <div
           key={toast.id}
-          className={`${styles.toast} ${styles[`toast-${toast.type}`]}`}
+          className={cn(styles.toast, styles[`toast-${toast.type}`])}
         >
           <div className={styles.toastIcon}>
-            {toast.type === 'success' ? (
-              <SvgCheckIcon color="#0074AB" />
-            ) : (
-              <SvgErrorIcon color="#C60000" />
-            )}
+            {toast.type === 'success' ? <SvgCheckIcon /> : <SvgErrorIcon />}
           </div>
           <div className={styles.toastMessage}>{toast.message}</div>
           <button
@@ -65,7 +62,7 @@ export const ToastProvider: FC<Props> = ({ children }) => {
     // Auto-remove after 2 seconds
     setTimeout(() => {
       setMessages((prev) => prev.filter((t) => t.id !== id));
-    }, 2000);
+    }, 3000);
   };
 
   const success = (message: string) => {

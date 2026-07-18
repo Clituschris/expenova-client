@@ -1,12 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.forgotPasswordContainer {
-  display: flex;
-  justify-content: end;
 }
 
 .forgotPasswordLink {
@@ -18,10 +12,6 @@
   text-decoration: none;
 }
 
-.forgotPasswordLink:hover {
-  transform: scale(1.1);
-}
-
 .button {
   margin-top: 8px;
 }
@@ -31,6 +21,7 @@
   font-size: var(--text-md);
   color: var(--text-faded);
   font-weight: 500;
+  margin-top: 16px;
 }
 
 .signupLink {

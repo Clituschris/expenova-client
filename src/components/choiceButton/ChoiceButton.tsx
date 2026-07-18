@@ -1,10 +1,10 @@
-/*** libraries ***/
+/** libraries **/
 import { memo, type FC } from 'react';
 
-/*** css ***/
+/** css **/
 import styles from './ChoiceButton.module.css';
 
-/*** types ***/
+/** types **/
 import type { Props, ChoiceValue } from './ChoiceButton.type';
 
 const ChoiceButton: FC<Props> = ({ choices, value, onSelect }) => {
@@ -21,6 +21,7 @@ const ChoiceButton: FC<Props> = ({ choices, value, onSelect }) => {
           id={index.toString()}
           className={styles.choice}
           data-enabled={choice.value === selectedValue}
+          key={index.toString()}
           onClick={() => onClick(choice.value)}
         >
           {choice.label}

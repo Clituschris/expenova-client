@@ -2,6 +2,7 @@
 
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import type { UnknownAction } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 import { reducers } from './mainReducer';
 
 const resetStoreActionType = 'main/resetStore';
@@ -24,6 +25,8 @@ const store = configureStore({
 export const resetStore = () => {
   store.dispatch({ type: resetStoreActionType });
 };
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

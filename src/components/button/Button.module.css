@@ -13,7 +13,6 @@
 .md {
   padding: 16px;
   font-size: var(--text-lg);
-  font-size: var(--text-lg);
   border-radius: 6px;
   font-weight: 600;
 }
@@ -40,4 +39,48 @@
   border: 1px solid var(--danger);
   background-color: var(--background);
   color: var(--danger);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading {
+  position: relative;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: currentColor;
+  border-radius: inherit;
+  opacity: 0.3;
+  animation: shimmer 1s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    width: 0;
+    left: 0;
+  }
+
+  30% {
+    width: 70%;
+    left: 0;
+  }
+
+  70% {
+    width: 50%;
+    left: 100%;
+  }
+
+  100% {
+    width: 0;
+    left: 100%;
+  }
 }

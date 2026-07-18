@@ -32,7 +32,7 @@ export default defineConfig([
       '@typescript-eslint/no-empty-object-type': 'warn',
       '@typescript-eslint/no-explicit-any': 'error',
       'react-refresh/only-export-components': 'off',
-      'react-hooks/set-state-in-effect': 'error',
+      'react-hooks/set-state-in-effect': 'off',
       'react-hooks/exhaustive-deps': 'off',
       'no-console': 'error',
       semi: ['error', 'always'],

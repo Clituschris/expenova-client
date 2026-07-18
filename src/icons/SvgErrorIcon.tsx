@@ -4,14 +4,23 @@ interface Props {
   color?: string;
 }
 
-const SvgErrorIcon: FC<Props> = ({ color = '#C60000' }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={14} height={14} fill="none">
-    <path
+const SvgErrorIcon: FC<Props> = ({ color = '#ffffff' }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={18}
+    height={18}
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <circle cx="12" cy="12" r="9" stroke={color} strokeWidth="2" />
+    <line
+      x1="7"
+      y1="17"
+      x2="17"
+      y2="7"
       stroke={color}
+      strokeWidth="2"
       strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M13 1 1 13M1 1l12 12"
     />
   </svg>
 );

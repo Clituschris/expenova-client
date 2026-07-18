@@ -9,7 +9,7 @@ const Phone = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
+      strokeWidth="2"
     >
       <path
         d="M22 16.92v3a2 2 0 0 1-2.18 2 

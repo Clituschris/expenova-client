@@ -66,3 +66,12 @@ npm run preview
 - `version`: `1.0.0`
 - `author`: `Clitus`
 - `repository`: `https://github.com/Clituschris/expenova-client.git`
+
+## CodeGen
+
+- This project has codegen script to generate api types from server
+- To use the feature install the package by below script
+
+```bash
+npm install -g typescript@5.4 openapi-typescript@7.13.0
+```

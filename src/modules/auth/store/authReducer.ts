@@ -4,11 +4,13 @@ import {
   loginMiddleware,
   resetPasswordMiddleware,
   signupMiddleware,
-  signupVerifyMiddleware
+  signupVerifyMiddleware,
+  verifyTokenMiddleware
 } from './authMiddleware';
 import type { AuthState } from './auth.types';
 
 const initialState: AuthState = {
+  isAuth: false,
   isLoading: false,
   isValid: false,
   passwordResetKey: undefined
@@ -31,9 +33,11 @@ const authSlice = createSlice({
     });
     builder.addCase(loginMiddleware.fulfilled, (state) => {
       state.isLoading = false;
+      state.isAuth = true;
     });
     builder.addCase(loginMiddleware.rejected, (state) => {
       state.isLoading = false;
+      state.isAuth = false;
     });
 
     builder.addCase(signupVerifyMiddleware.pending, (state) => {
@@ -54,9 +58,11 @@ const authSlice = createSlice({
     builder.addCase(signupMiddleware.fulfilled, (state) => {
       state.isLoading = false;
       state.isValid = false;
+      state.isAuth = true;
     });
     builder.addCase(signupMiddleware.rejected, (state) => {
       state.isLoading = false;
+      state.isAuth = false;
     });
 
     builder.addCase(getResetPasswordkeyMiddleware.pending, (state) => {
@@ -83,6 +89,13 @@ const authSlice = createSlice({
     });
     builder.addCase(resetPasswordMiddleware.rejected, (state) => {
       state.isLoading = false;
+    });
+
+    builder.addCase(verifyTokenMiddleware.fulfilled, (state) => {
+      state.isAuth = true;
+    });
+    builder.addCase(verifyTokenMiddleware.rejected, (state) => {
+      state.isAuth = false;
     });
   }
 });

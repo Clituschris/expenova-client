@@ -11,6 +11,10 @@ export type AuthState = {
   isValid: boolean;
   isAuth: boolean;
   passwordResetKey?: string;
+  user?: {
+    name: string;
+    email: string;
+  };
 };
 
 export type SignupFormValues = { confirmPassword: string } & SignupPayload;
@@ -20,6 +24,7 @@ export type ResetPasswordFormValues = {
   ResetPasswordPayload;
 
 export type HealthResponse = SuccessResponseOf<typeof apiRoutes.HEALTH, 'get'>;
+export type VerifyTokenResponse = SuccessResponseOf<typeof apiRoutes.VERIFY_TOKEN, 'get'>;
 
 export type LoginPayload = BodyOf<typeof apiRoutes.LOGIN, 'post'>;
 export type LoginResponse = SuccessResponseOf<typeof apiRoutes.LOGIN, 'post'>;

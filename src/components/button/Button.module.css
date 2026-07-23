@@ -20,7 +20,7 @@
 .primary.filled {
   background-color: var(--primary);
   border: none;
-  color: var(--white);
+  color: var(--primary-text);
 }
 
 .primary.outlined {

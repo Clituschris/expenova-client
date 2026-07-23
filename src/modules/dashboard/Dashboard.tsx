@@ -1,8 +1,5 @@
-import { Button } from '@app/components';
-import { logoutApp } from '@app/utility/commonServices';
-
 const Dashboard = () => {
-  return <Button text="logout" onClick={logoutApp} />;
+  return <div></div>;
 };
 
 export default Dashboard;

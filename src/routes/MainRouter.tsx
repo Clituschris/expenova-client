@@ -16,6 +16,8 @@ const MainRouter = () => {
         <Route path={ROUTES.FORGET_PASSWORD} element={<ForgotPassword />} />
         <Route element={<ProtectedRoute />}>
           <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
+          <Route path={ROUTES.TRANSACTIONS} element={<Dashboard />} />
+          <Route path={ROUTES.REPORTS} element={<Dashboard />} />
         </Route>
       </Route>
     </Routes>

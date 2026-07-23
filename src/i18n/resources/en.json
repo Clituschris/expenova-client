@@ -1,6 +1,8 @@
 {
   "auth": {
     "login": "Login",
+    "logout": "Logout",
+    "viewprofile": "ViewProfile",
     "signup": "Sign up",
     "banner": {
       "title": {

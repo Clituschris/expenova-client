@@ -1,0 +1,8 @@
+.dropBox {
+  position: fixed;
+  z-index: 1000;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 8px;
+  overflow: hidden;
+}

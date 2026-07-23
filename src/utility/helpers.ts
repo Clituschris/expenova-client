@@ -38,6 +38,6 @@ export const errorCodeToMessage = (error: unknown) => {
 
 export const loadSlashScreen = (): Promise<void> => {
   return new Promise((resolve) => {
-    setTimeout(resolve, 5000);
+    setTimeout(resolve, 3000);
   });
 };

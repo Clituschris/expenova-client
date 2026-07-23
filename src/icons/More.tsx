@@ -5,7 +5,7 @@ interface Props {
   color?: string;
 }
 
-const User: FC<Props> = ({ size = 1, color = 'var(--text)' }) => {
+const More: FC<Props> = ({ size = 1, color = '#000' }) => {
   const height = size * 18;
   const width = size * 18;
   return (
@@ -14,14 +14,16 @@ const User: FC<Props> = ({ size = 1, color = 'var(--text)' }) => {
       height={height}
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       stroke={color}
       strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 20C4 16 8 14 12 14C16 14 20 16 20 20" />
+      <circle cx="5" cy="12" r="1.5" fill={color} />
+      <circle cx="12" cy="12" r="1.5" fill={color} />
+      <circle cx="19" cy="12" r="1.5" fill={color} />
     </svg>
   );
 };
 
-export default memo(User);
+export default memo(More);

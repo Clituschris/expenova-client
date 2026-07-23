@@ -29,7 +29,8 @@ import type {
   SignupPayload,
   SignupResponse,
   SignupVerifyQueryParam,
-  SignupVerifyResponse
+  SignupVerifyResponse,
+  VerifyTokenResponse
 } from './auth.types';
 import { TOKEN } from '@app/utility/constants';
 
@@ -50,7 +51,7 @@ export const healthCheckMiddleware = createAsyncThunk<HealthResponse>(
   }
 );
 
-export const verifyTokenMiddleware = createAsyncThunk<LoginResponse>(
+export const verifyTokenMiddleware = createAsyncThunk<VerifyTokenResponse>(
   VERIFY_TOKEN,
   async (_, { rejectWithValue }) => {
     try {

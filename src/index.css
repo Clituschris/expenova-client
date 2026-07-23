@@ -1,10 +1,15 @@
 #root {
   /* font */
+  --text-xs: clamp(10px, 0.5vw, 14px);
   --text-sm: clamp(12px, 0.6vw, 16px);
   --text-md: clamp(14px, 0.85vw, 18px);
   --text-lg: clamp(16px, 1vw, 20px);
   --text-xl: clamp(20px, 1.75vw, 24px);
   --text-2xl: clamp(24px, 1.85vw, 28px);
+
+  /* box shadow */
+  --border-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 1px 0px 0px 1px;
 
   /* colors */
   --black: hsl(0, 0%, 0%);
@@ -16,16 +21,17 @@
   --text-faded: var(--black-faded);
   --bordercolor: hsl(0, 0%, 75%);
 
-  --theme: 270;
+  --theme: 250;
   --primary: hsl(var(--theme), 100%, 50%);
-  --primary-background: hsl(var(--theme), 100%, 95%);
+  --primary-background: hsl(var(--theme), 35%, 95%);
   --primary-faded: hsla(var(--theme), 100%, 99%);
+  --primary-text: var(--white);
 
   --red: 0;
   --danger: hsl(var(--red), 100%, 50%);
-  --danger-background: hsl(var(--red), 100%, 95%);
+  --danger-background: hsl(var(--red), 35%, 95%);
 
   --green: 120;
   --success: hsl(var(--green), 100%, 50%);
-  --success-background: hsl(var(--green), 100%, 95%);
+  --success-background: hsl(var(--green), 35%, 95%);
 }

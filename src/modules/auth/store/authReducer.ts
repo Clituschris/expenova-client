@@ -13,7 +13,8 @@ const initialState: AuthState = {
   isAuth: false,
   isLoading: false,
   isValid: false,
-  passwordResetKey: undefined
+  passwordResetKey: undefined,
+  user: undefined
 };
 
 const authSlice = createSlice({
@@ -31,13 +32,18 @@ const authSlice = createSlice({
     builder.addCase(loginMiddleware.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(loginMiddleware.fulfilled, (state) => {
+    builder.addCase(loginMiddleware.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isAuth = true;
+      state.user = {
+        name: action.payload.user?.name || '',
+        email: action.payload.user?.email || ''
+      };
     });
     builder.addCase(loginMiddleware.rejected, (state) => {
       state.isLoading = false;
       state.isAuth = false;
+      state.user = undefined;
     });
 
     builder.addCase(signupVerifyMiddleware.pending, (state) => {
@@ -55,14 +61,19 @@ const authSlice = createSlice({
     builder.addCase(signupMiddleware.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(signupMiddleware.fulfilled, (state) => {
+    builder.addCase(signupMiddleware.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isValid = false;
       state.isAuth = true;
+      state.user = {
+        name: action.payload.user?.name || '',
+        email: action.payload.user?.email || ''
+      };
     });
     builder.addCase(signupMiddleware.rejected, (state) => {
       state.isLoading = false;
       state.isAuth = false;
+      state.user = undefined;
     });
 
     builder.addCase(getResetPasswordkeyMiddleware.pending, (state) => {
@@ -91,11 +102,16 @@ const authSlice = createSlice({
       state.isLoading = false;
     });
 
-    builder.addCase(verifyTokenMiddleware.fulfilled, (state) => {
+    builder.addCase(verifyTokenMiddleware.fulfilled, (state, action) => {
       state.isAuth = true;
+      state.user = {
+        name: action.payload.user?.name || '',
+        email: action.payload.user?.email || ''
+      };
     });
     builder.addCase(verifyTokenMiddleware.rejected, (state) => {
       state.isAuth = false;
+      state.user = undefined;
     });
   }
 });

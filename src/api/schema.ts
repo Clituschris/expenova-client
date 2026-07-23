@@ -130,6 +130,10 @@ export interface paths {
             'application/json': {
               message?: string;
               token?: string;
+              user?: {
+                name?: string;
+                email?: string;
+              };
             };
           };
         };
@@ -186,6 +190,10 @@ export interface paths {
             'application/json': {
               message?: string;
               token?: string;
+              user?: {
+                name?: string;
+                email?: string;
+              };
             };
           };
         };

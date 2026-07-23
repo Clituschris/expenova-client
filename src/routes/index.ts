@@ -3,5 +3,7 @@ export default {
   LOGIN: '/login',
   SIGNUP: '/signup',
   FORGET_PASSWORD: '/forgotpassword',
-  DASHBOARD: '/dashboard'
+  DASHBOARD: '/dashboard',
+  TRANSACTIONS: '/transactions',
+  REPORTS: '/reports'
 };

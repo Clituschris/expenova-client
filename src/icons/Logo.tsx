@@ -1,10 +1,10 @@
 import { memo, type FC } from 'react';
 
-interface LogoProps {
+interface Props {
   size?: number;
 }
 
-const Logo: FC<LogoProps> = ({ size = 1 }) => {
+const Logo: FC<Props> = ({ size = 1 }) => {
   const height = size * 50;
   const width = size * 150;
   return (

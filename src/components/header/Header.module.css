@@ -1,0 +1,25 @@
+.header {
+  height: 50px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--border-shadow);
+}
+
+.userName{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-xl);
+  font-weight: 500;
+}
+
+.actionIcons {
+  display: flex;
+  gap: 24px;
+}
+
+.actionIcon {
+  cursor: pointer;
+}

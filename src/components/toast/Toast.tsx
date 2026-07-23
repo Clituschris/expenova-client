@@ -2,8 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import type { FC, ReactNode } from 'react';
 import styles from './Toast.module.css';
 import { cn } from '@app/utility/helpers';
-import SvgCheckIcon from '../../icons/SvgCheckIcon';
-import SvgErrorIcon from '../../icons/SvgErrorIcon';
+import { Check, Close, Warning } from '@app/icons';
 
 interface ToastMessage {
   id: string;
@@ -34,7 +33,7 @@ const CustomToastContainer: FC<{
           className={cn(styles.toast, styles[`toast-${toast.type}`])}
         >
           <div className={styles.toastIcon}>
-            {toast.type === 'success' ? <SvgCheckIcon /> : <SvgErrorIcon />}
+            {toast.type === 'success' ? <Check /> : <Warning />}
           </div>
           <div className={styles.toastMessage}>{toast.message}</div>
           <button
@@ -42,7 +41,7 @@ const CustomToastContainer: FC<{
             onClick={() => onClose(toast.id)}
             aria-label="Close toast"
           >
-            ×
+            <Close />
           </button>
         </div>
       ))}
